@@ -3,11 +3,10 @@ package handler
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
-var count int
-
 func Handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, count)
-	count++
+	currentTime := time.Now().Format(time.RFC850)
+	fmt.Fprintf(w, currentTime)
 }
